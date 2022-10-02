@@ -1,12 +1,16 @@
 const express = require('express');
+const dotenv = require('dotenv');
 const bodyParser = require('body-parser');
+const cors = require('cors');
+dotenv.config();
 
 const app = express();
 
+app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
-app.listen(8080);
+app.listen(process.env.PORT || 8080)
 
 let bancoVetor = [{nome:'Bruno', funcao:'Programador Junior', salario: 1880.00}];
 
